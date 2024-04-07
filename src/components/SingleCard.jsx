@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardContent, CardMedia, Typography, Box } from "@mui/material";
 
-const SingleCard = ({ img, name, gender, species, status }) => {
+const SingleCard = ({ img, name, gender, species, status }) => { //recibimos del personaje, la img, nombre, genero, especie y estado
   return (
     <Card
       sx={{
@@ -15,12 +15,12 @@ const SingleCard = ({ img, name, gender, species, status }) => {
       <CardMedia
         component="img"
         height="320"
-        image={img}
+        image={img} //insertamos el link img q nos llega como prop
         alt="Image"
         sx={{ objectFit: "cover" }}
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h5" component="div"> 
           {name}
         </Typography>
         <Box sx={{ mt: 2 }}>
@@ -29,7 +29,7 @@ const SingleCard = ({ img, name, gender, species, status }) => {
             color="text.secondary"
             sx={{ fontSize: "1rem" }}
           >
-            <b>Gender:</b> {gender}
+            <b>Gender:</b> {gender} 
           </Typography>
           <Typography
             variant="body2"

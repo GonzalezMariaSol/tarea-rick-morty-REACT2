@@ -2,21 +2,17 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import { InputBase, IconButton } from '@mui/material';
 import { Search as SearchIcon } from '@mui/icons-material';
-// import { useState } from "react";
 
-const NavBar = ({setSearchedCharacters, setFilteredCharacters, characters }) => {
 
-  // const [searchValue, setSearchValue] = useState("");
+const NavBar = ({setSearchedCharacters, setFilteredCharacters }) => {//recibo las cajas q van a estar actualizando a los personajes buscados y los filtros que se quieran aplicar
 
-  const handleStatus = (status) => {
-
-    setFilteredCharacters(status);
+  const handleStatus = (status) => { //se ocupa de capturar el tipo de filtro que se paso 
+    setFilteredCharacters(status); //se lo pasamos a nuestra caja que va a actualizar al nuevo filtro elegido
   }
 
-  const handleSearch = (e) => {
-    const value = e.target.value;
-    setSearchedCharacters(value); //GUARDO MI VALOR BUSCADO
-    // console.log("soy el valor que captura el handlesearch del componente navbar",value);
+  const handleSearch = (e) => { //se ocupa de capturar el evento del input
+    const value = e.target.value; //lo desglosamos hasta obtener el valor (cada caracter q se va a estar cargando)
+    setSearchedCharacters(value); //lo pasamos a nuestra caja que se va a actualizar x cada caracter cargado para ir buscando coincidencia
     }
 
   return (
@@ -26,8 +22,8 @@ const NavBar = ({setSearchedCharacters, setFilteredCharacters, characters }) => 
       <Button variant="outlined" sx={{marginRight: "3vh", backgroundColor: "purple", color: "white"}} onClick={()=>handleStatus("unknown")}>Unknown</Button>
       <Box sx={{ marginRight: "3vh", border: "1px solid black", borderRadius:"5px" }}>
         <InputBase
-        onChange={handleSearch}
-        sx={{ ml: 1, flex: 1 }}
+          onChange={handleSearch}
+          sx={{ ml: 1, flex: 1 }}
           placeholder="Search"
           inputProps={{ "aria-label": "search" }}
         />
