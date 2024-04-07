@@ -16,7 +16,7 @@ const NavBar = ({setSearchedCharacters, setFilteredCharacters, characters }) => 
   const handleSearch = (e) => {
     const value = e.target.value;
     setSearchedCharacters(value); //GUARDO MI VALOR BUSCADO
-    console.log(value);
+    // console.log("soy el valor que captura el handlesearch del componente navbar",value);
     }
 
   return (

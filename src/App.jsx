@@ -14,42 +14,29 @@ const App = () => {
   const [searchedCharacters, setSearchedCharacters] = useState([]); //recibe el valor del input para luego mostrar los resultados que coinciden
 
   useEffect(() => {
-    let url = "https://rickandmortyapi.com/api/character/";
+    let url = "https://rickandmortyapi.com/api/character/?";
 
     const fetchData = async () => {
       if (filteredCharacters || pagination || searchedCharacters) {
         //si se ha seleccionado algo
         if (filteredCharacters) {
           //si lo que se selecciono es algun filtro
-          url += `?status=${filteredCharacters}`; //mostrame solos los que cumplan con el filtro
-          console.log(url);
+          url += `status=${filteredCharacters}&`; //mostrame solos los que cumplan con el filtro
+          console.log("entre en filtered character", searchedCharacters);
         }
         if (pagination) {
           //si lo que se selecciono fue la pagina
-          url += `?page=${pagination}`; //mostrame la pagina correspondiente
-          console.log(url);
+          url += `page=${pagination}&`; //mostrame la pagina correspondiente
+          console.log("entre en pagination", searchedCharacters);
         }
-
-
-//!!!!!!!!!!!!!!!!!!!!!!! ACA ME QUEDE PENDIENTE
-        if (searchedCharacters) {
-          console.log(characters)
-          const filteredCharacters = characters.filter((character) =>
-            character.name
-              .toLowerCase()
-              .includes(searchedCharacters.toLowerCase())
-          );
-          console.log(filteredCharacters);//me trae solo si coincide algunos de los PRIMEROS 20 
+        if (searchedCharacters.length > 0) {
+          url += `name=${searchedCharacters}&`
         }
-        // if (searchedCharacters) {
-        //   url += `?name=${searchedCharacters}`
-        //   console.log(url);
-        // }
+        console.log(url);
       }
 
       try {
         const { data } = await axios.get(url);
-        console.log(data.results);//solo trae los primeros 20
         setCharacters(data.results);
         setTotalPages(data.info);
       } catch (error) {
@@ -79,6 +66,3 @@ const App = () => {
 
 export default App;
 
-//*ASK PORQUE SE ME ROMPE CUANDO HAGO LA BUSQUEDA X NOMBRE (EN ALGUN MOMENTO FUNCIONO PERO HACIENDO QUE SE RENDERISEN LOS FILTROS SE HIZO LA ROMPIZION) 
-//* PORQUE CUANDO SE APLICA EL FILTRO, MUESTRA UNA PAGINACION CORRECTA PERO SI SE QUIERE USAR NO FUNCIONA?
-//*PORQUE NO SE ME ESTAN ACUMULANDO LOS FILTROS?
