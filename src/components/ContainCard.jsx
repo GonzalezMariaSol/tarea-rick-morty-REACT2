@@ -5,15 +5,12 @@ import SingleCard from "./SingleCard";
 
 import Pagination from "@mui/material/Pagination";
 
-const ContainCard = ({ characters, totalPages, pagination }) => {
-
-
-    const handlePageChange = (page) => {
-        // console.log("pagina", page);
-        pagination(`https://rickandmortyapi.com/api/character/?page=${page}`);
-          };
-
-
+const ContainCard = ({ characters, totalPages, setPagination }) => {
+  const handlePageChange = (page) => {
+    console.log("holis");
+    setPagination(`https://rickandmortyapi.com/api/character/?page=${page}`);
+    
+  };
 
   return (
     <div>
@@ -47,8 +44,11 @@ const ContainCard = ({ characters, totalPages, pagination }) => {
         }}
       >
         <Box sx={{ marginTop: "10vh" }}>
-    <Pagination count={totalPages.pages} onChange={(event, page) => handlePageChange(page)} />
-  </Box>
+          <Pagination
+            count={totalPages.pages}
+            onChange={(event, page) => handlePageChange(page)}
+          />
+        </Box>
       </Box>
     </div>
   );

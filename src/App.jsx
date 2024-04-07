@@ -26,11 +26,12 @@ function App() {
     fetchData();
   }, []);
   
+  console.log(pagination); //aca me trae la paginacion correcta. Porque no se me actualiza dentro del useEffect?! O.O
 
   return (
     <>
     <Header />
-    <ContainCard characters={characters} totalPages={totalPages} pagination={setPagination}/>
+    <ContainCard characters={characters} totalPages={totalPages} setPagination={setPagination}/>
     <Footer />
     </>
   )
