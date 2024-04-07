@@ -5,7 +5,7 @@ import { createTheme } from "@mui/material/styles";
 
 import { AppBar, Toolbar, Typography } from "@mui/material";
 
-const Navbar = () => {
+const Header = ({setSearchedCharacters, characters, setFilteredCharacters}) => {
   return (
     <AppBar
       position="static"
@@ -19,10 +19,10 @@ const Navbar = () => {
         <Typography variant="h6" component="div" sx={{ flexGrow: 1}}>
           Rick & Morty APP
         </Typography>
-        <NavBar />
+        <NavBar setSearchedCharacters={setSearchedCharacters} characters={characters} setFilteredCharacters={setFilteredCharacters}/>
       </Toolbar>
     </AppBar>
   );
 };
 
-export default Navbar;
+export default Header;

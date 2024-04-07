@@ -7,9 +7,7 @@ import Pagination from "@mui/material/Pagination";
 
 const ContainCard = ({ characters, totalPages, setPagination }) => {
   const handlePageChange = (page) => {
-    console.log("holis");
-    setPagination(`https://rickandmortyapi.com/api/character/?page=${page}`);
-    
+    setPagination(page);
   };
 
   return (
