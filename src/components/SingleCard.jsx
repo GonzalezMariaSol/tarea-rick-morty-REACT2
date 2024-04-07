@@ -6,7 +6,7 @@ const SingleCard = ({ img, name, gender, species, status }) => { //recibimos del
     <Card
       sx={{
         width: "45vh",
-        height: "75vh",
+        height: "max-content",
         maxWidth: 345,
         boxShadow: "0 4px 8px #b0b0b0",
         marginTop: "5vh"
